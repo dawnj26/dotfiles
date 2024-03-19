@@ -2,6 +2,7 @@ return {
   {
     "olimorris/onedarkpro.nvim",
     priority = 1000, -- Ensure it loads first
+    enabled = false,
   },
   {
     "rebelot/kanagawa.nvim",
@@ -9,7 +10,18 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "kanagawa",
+      colorscheme = "rose-pine",
     },
+  },
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    opts = {
+      variant = "moon",
+      dark_variant = "moon",
+    },
+    config = function(_, opts)
+      require("rose-pine").setup(opts)
+    end,
   },
 }

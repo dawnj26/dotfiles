@@ -10,6 +10,7 @@ return {
       javascriptreact = { { "prettierd", "prettier" } },
       css = { "prettier" },
       html = { "prettier" },
+      markdown = { "markdownlint" },
     },
   },
 }

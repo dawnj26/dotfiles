@@ -6,6 +6,7 @@ return {
       "shfmt",
       "lua-language-server",
       "typescript-language-server",
+      -- "intelephense",
       "phpactor",
       "css-lsp",
       "html-lsp",
