@@ -1,0 +1,14 @@
+import = [
+  "~/.config/alacritty/catppuccin_mocha.toml"
+]
+  
+[window]
+dynamic_padding = true
+padding.x = 4
+padding.y = 4
+opacity = 0.8
+blur = true
+
+[font]
+normal.family = "CaskaydiaCove Nerd Font"
+size = 12
