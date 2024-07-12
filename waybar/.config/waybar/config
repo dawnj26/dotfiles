@@ -80,7 +80,7 @@
     },
     "custom/lock": {
         "tooltip": false,
-        "on-click": "hyprlock",
+        "on-click": "loginctl lock-session",
         "format": "",
     },
     "custom/power": {
