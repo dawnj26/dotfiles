@@ -1,8 +1,14 @@
 return {
   {
-    "olimorris/onedarkpro.nvim",
-    priority = 1000, -- Ensure it loads first
-    enabled = false,
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    opts = {
+      flavour = "mocha",
+    },
+    -- config = function(_, opts)
+    --   require("catppuccin").setup(opts)
+    -- end,
   },
   {
     "rebelot/kanagawa.nvim",
@@ -10,7 +16,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight",
+      colorscheme = "catppuccin",
     },
   },
   {
