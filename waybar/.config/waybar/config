@@ -80,8 +80,9 @@
     },
     "custom/lock": {
         "tooltip": false,
-        "on-click": "loginctl lock-session",
-        "format": "",
+        "exec": "~/.config/waybar/scripts/idle.sh",
+        "on-click": "~/.config/waybar/scripts/switch.sh",
+        "format": "{}",
     },
     "custom/power": {
         "tooltip": false,
