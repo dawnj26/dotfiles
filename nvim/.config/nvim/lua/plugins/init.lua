@@ -60,7 +60,7 @@ return {
       end, { desc = "Open harpoon window" })
 
       vim.keymap.set("n", "<leader>a", function()
-        harpoon:list():append()
+        harpoon:list():add()
       end)
       vim.keymap.set("n", "<A-e>", function()
         harpoon.ui:toggle_quick_menu(harpoon:list())
@@ -76,6 +76,12 @@ return {
       end)
       vim.keymap.set("n", "<A-4>", function()
         harpoon:list():select(4)
+      end)
+      vim.keymap.set("n", "<A-5>", function()
+        harpoon:list():select(5)
+      end)
+      vim.keymap.set("n", "<A-6>", function()
+        harpoon:list():select(6)
       end)
 
       -- Toggle previous & next buffers stored within Harpoon list
