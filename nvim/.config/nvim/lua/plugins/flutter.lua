@@ -10,6 +10,14 @@ return {
     -- widget_guides = {
     --   enabled = true,
     -- },
+    debugger = {
+      enabled = true,
+      run_via_dap = false,
+    },
+    dev_log = {
+      enabled = true,
+      open_cmd = "10sp",
+    },
   },
   config = function(_, opts)
     require("flutter-tools").setup(opts)
