@@ -11,7 +11,7 @@ return {
     --   enabled = true,
     -- },
     debugger = {
-      enabled = true,
+      enabled = false,
       run_via_dap = false,
     },
     dev_log = {
