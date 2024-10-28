@@ -39,7 +39,7 @@
         "timezone": "Asia/Manila",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "  {:%b. %d, %Y}",
-        "format": " {:%I:%M %p}"
+        "format": "  {:%I:%M %p}"
     },
     "backlight": {
         "device": "intel_backlight",
