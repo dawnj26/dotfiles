@@ -24,6 +24,9 @@ export NVM_DIR="$HOME/.nvm"
 alias x="eza -alh --group-directories-first --show-symlinks --icons --no-permissions --no-time"
 alias lg="lazygit"
 alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
+alias stop-containers='docker stop $(docker ps -a -q)'
+alias terraria='/home/dawn/Downloads/terraria_v1_4_4_9_v4_60321/data/noarch/start.sh'
+alias start-api='docker compose -f /home/dawn/projects/craftmate_api/docker-compose.yml up -d'
 
 # Zinit install
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -88,3 +91,13 @@ zstyle ':fzf-tab:*' switch-group '<' '>'
 [[ -f /home/dawn/.dart-cli-completion/zsh-config.zsh ]] && . /home/dawn/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
+eval "$(zoxide init zsh)"
+
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
