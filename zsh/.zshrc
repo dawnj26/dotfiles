@@ -5,6 +5,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Keybinds
+bindkey "^[[1;3C" forward-word
+bindkey "^[[1;3D" backward-word
+bindkey "^[^?" backward-kill-word
+
 # My env
 export PATH=$HOME/flutter/bin:$HOME/.config/composer/vendor/bin:$PATH:$HOME/.local/bin:$HOME/.pub-cache/bin
 export XCURSOR_PATH=${XCURSOR_PATH}:$HOME/.local/share/icons:/usr/share/icons
@@ -27,6 +32,10 @@ alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
 alias stop-containers='docker stop $(docker ps -a -q)'
 alias terraria='/home/dawn/Downloads/terraria_v1_4_4_9_v4_60321/data/noarch/start.sh'
 alias start-api='docker compose -f /home/dawn/projects/craftmate_api/docker-compose.yml up -d'
+alias main-display-off='hyprctl keyword monitor eDP-1,disabled'
+alias main-display-on='hyprctl keyword monitor eDP-1,enabled'
+
+# source $HOME/.venvs/MyEnv/bin/activate
 
 # Zinit install
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -100,4 +109,39 @@ function y() {
 		builtin cd -- "$cwd"
 	fi
 	rm -f -- "$tmp"
+}
+
+# fnm
+FNM_PATH="/home/dawn/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/dawn/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi
+
+function fupgrade() {
+    echo "🔍 Looking for Flutter packages in subdirectories..."
+    
+    # Check if current directory has any subdirectories
+    if [ -z "$(ls -d */ 2>/dev/null)" ]; then
+        echo "❌ No subdirectories found in current location"
+        return 1
+    fi
+    
+    # Loop through immediate subdirectories only
+    for dir in */; do
+        if [ -f "${dir}pubspec.yaml" ]; then
+            echo "\n📦 Upgrading dependencies in $dir"
+            
+            # Change to the subdirectory
+            cd "$dir" || continue
+            
+            # Run flutter pub upgrade
+            flutter pub upgrade
+            
+            # Return to the parent directory
+            cd ..
+        fi
+    done
+    
+    echo "\n✅ Completed upgrading all Flutter packages in immediate subdirectories"
 }
