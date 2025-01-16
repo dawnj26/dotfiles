@@ -12,13 +12,13 @@
 }
 {
     "label" : "logout",
-    "action" : "wayland-logout",
+    "action" : "uwsm stop",
     "text" : "Logout",
     "keybind" : "e"
 }
 {
     "label" : "hibernate",
-    "action" : "hyprlock && systemctl hibernate",
+    "action" : "uwsm app -- hyprlock && systemctl hibernate",
     "text" : "Hibernate",
     "keybind" : "h"
 }
