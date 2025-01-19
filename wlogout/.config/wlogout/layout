@@ -13,7 +13,7 @@
 {
     "label" : "logout",
     "action" : "uwsm stop",
-    "text" : "Logout",
+    "text": "Logout"
     "keybind" : "e"
 }
 {
