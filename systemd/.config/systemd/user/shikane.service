@@ -1,0 +1,13 @@
+[Unit]
+Description=Shikane - Dynamic Output Configuration Tool for Wayland
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/shikane
+Restart=always
+RestartSec=5
+Environment=DISPLAY=:0
+Environment=XDG_RUNTIME_DIR=/run/user/%U
+
+[Install]
+WantedBy=default.target
