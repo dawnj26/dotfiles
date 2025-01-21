@@ -141,7 +141,7 @@
   },
   "custom/power": {
     "tooltip": false,
-    "on-click": "wlogout",
+    "on-click": "uwsm app -- wlogout",
     "format": "⏼"
   }
 }
