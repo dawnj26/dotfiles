@@ -34,6 +34,7 @@ alias terraria='/home/dawn/Downloads/terraria_v1_4_4_9_v4_60321/data/noarch/star
 alias start-api='docker compose -f /home/dawn/projects/craftmate_api/docker-compose.yml up -d'
 alias main-display-off='hyprctl keyword monitor eDP-1,disabled'
 alias main-display-on='hyprctl keyword monitor eDP-1,enabled'
+alias u="uwsm app --"
 
 # source $HOME/.venvs/MyEnv/bin/activate
 
