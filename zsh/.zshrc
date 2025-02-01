@@ -10,22 +10,22 @@ bindkey "^[[1;3C" forward-word
 bindkey "^[[1;3D" backward-word
 bindkey "^[^?" backward-kill-word
 
-# My env
+# Enviroment variables
 export PATH=$HOME/flutter/bin:$HOME/.config/composer/vendor/bin:$PATH:$HOME/.local/bin:$HOME/.pub-cache/bin
 export XCURSOR_PATH=${XCURSOR_PATH}:$HOME/.local/share/icons:/usr/share/icons
 export XCURSOR_THEME=Bibata-Modern-Ice
 export XCURSOR_SIZE=24
 export NEOVIDE_FORK=1
 export EDITOR=nvim
-# export NVIM_APPNAME=astrovim
-# export QT_QPA_PLATFORM=wayland
 export ELECTRON_OZONE_PLATFORM_HINT=wayland
 export CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
 
+# Node version manager
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# Aliases
 alias x="eza -alh --group-directories-first --show-symlinks --icons --no-permissions --no-time"
 alias lg="lazygit"
 alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
@@ -35,8 +35,7 @@ alias start-api='docker compose -f /home/dawn/projects/craftmate_api/docker-comp
 alias main-display-off='hyprctl keyword monitor eDP-1,disabled'
 alias main-display-on='hyprctl keyword monitor eDP-1,enabled'
 alias u="uwsm app --"
-
-# source $HOME/.venvs/MyEnv/bin/activate
+alias code="uwsm app -- code"
 
 # Zinit install
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
