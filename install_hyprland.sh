@@ -94,6 +94,7 @@ case $choice in
   echo "Installing the stable release of Hyprland and associated utilities..."
   yay -S --needed --noconfirm \
     hyprland \
+    hyprgraphics \
     hyprcursor \
     hyprlang \
     hyprwayland-scanner \
