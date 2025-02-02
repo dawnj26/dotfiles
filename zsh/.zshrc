@@ -12,12 +12,8 @@ bindkey "^[^?" backward-kill-word
 
 # Enviroment variables
 export PATH=$HOME/flutter/bin:$HOME/.config/composer/vendor/bin:$PATH:$HOME/.local/bin:$HOME/.pub-cache/bin
-export XCURSOR_PATH=${XCURSOR_PATH}:$HOME/.local/share/icons:/usr/share/icons
-export XCURSOR_THEME=Bibata-Modern-Ice
-export XCURSOR_SIZE=24
 export NEOVIDE_FORK=1
 export EDITOR=nvim
-export ELECTRON_OZONE_PLATFORM_HINT=wayland
 export CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
 
 # Node version manager
