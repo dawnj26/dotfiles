@@ -11,8 +11,7 @@ bindkey "^[[1;3D" backward-word
 bindkey "^[^?" backward-kill-word
 
 # Enviroment variables
-export PATH=$HOME/flutter/bin:$HOME/.config/composer/vendor/bin:$PATH:$HOME/.local/bin:$HOME/.pub-cache/bin
-export NEOVIDE_FORK=1
+export PATH=$HOME/flutter/bin:$HOME/.config/composer/vendor/bin:$PATH:$HOME/.local/bin:$HOME/.pub-cache/bin:$HOME/.local/share/bob/nvim-bin
 export EDITOR=nvim
 export CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
 
@@ -22,16 +21,16 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Aliases
-alias x="eza -alh --group-directories-first --show-symlinks --icons --no-permissions --no-time"
+alias x="eza -alh --group-directories-first --show-symlinks --icons --no-time"
 alias lg="lazygit"
 alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
 alias stop-containers='docker stop $(docker ps -a -q)'
-alias terraria='/home/dawn/Downloads/terraria_v1_4_4_9_v4_60321/data/noarch/start.sh'
 alias start-api='docker compose -f /home/dawn/projects/craftmate_api/docker-compose.yml up -d'
 alias main-display-off='hyprctl keyword monitor eDP-1,disabled'
 alias main-display-on='hyprctl keyword monitor eDP-1,enabled'
 alias u="uwsm app --"
 alias code="uwsm app -- code"
+alias pa="php artisan"
 
 # Zinit install
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -50,6 +49,7 @@ zinit light Aloxaf/fzf-tab
 
 zinit snippet OMZP::archlinux
 zinit snippet OMZP::command-not-found
+zinit snippet OMZP::git
 
 # Load completions
 autoload -Uz compinit && compinit
@@ -114,30 +114,3 @@ if [ -d "$FNM_PATH" ]; then
   eval "`fnm env`"
 fi
 
-function fupgrade() {
-    echo "🔍 Looking for Flutter packages in subdirectories..."
-    
-    # Check if current directory has any subdirectories
-    if [ -z "$(ls -d */ 2>/dev/null)" ]; then
-        echo "❌ No subdirectories found in current location"
-        return 1
-    fi
-    
-    # Loop through immediate subdirectories only
-    for dir in */; do
-        if [ -f "${dir}pubspec.yaml" ]; then
-            echo "\n📦 Upgrading dependencies in $dir"
-            
-            # Change to the subdirectory
-            cd "$dir" || continue
-            
-            # Run flutter pub upgrade
-            flutter pub upgrade
-            
-            # Return to the parent directory
-            cd ..
-        fi
-    done
-    
-    echo "\n✅ Completed upgrading all Flutter packages in immediate subdirectories"
-}
