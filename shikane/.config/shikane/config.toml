@@ -1,0 +1,16 @@
+[[profile]]
+name = "Default"
+   [[profile.output]]
+   match = "eDP-1"
+   enable = true
+
+[[profile]]
+name = "External only"
+   [[profile.output]]
+   match = "eDP-1"
+   enable = false
+
+   [[profile.output]]
+   search = "n/HDMI-[ABC]-[1-9]"
+   mode = "1920x1080@75.00Hz"
+   enable = true
