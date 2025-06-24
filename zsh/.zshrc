@@ -31,6 +31,10 @@ alias main-display-on='hyprctl keyword monitor eDP-1,enabled'
 alias u="uwsm app --"
 alias code="uwsm app -- code"
 alias pa="php artisan"
+alias disable-touchpad="hyprctl keyword 'device[elan0708:00-04f3:30a0-touchpad]:enabled' 'false'"
+alias enable-touchpad="hyprctl keyword 'device[elan0708:00-04f3:30a0-touchpad]:enabled' 'true'"
+alias proton-up="sudo wg-quick up /etc/wireguard/dawn-JP-FREE-17.conf"
+alias proton-down="sudo wg-quick down /etc/wireguard/dawn-JP-FREE-17.conf"
 
 # Zinit install
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
