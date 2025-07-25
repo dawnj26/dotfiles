@@ -110,7 +110,7 @@ case $choice in
   remove_stable_versions
 
   echo "Installing the development version of Hyprland (hyprland-meta-git)..."
-  yay -S --needed --noconfirm --answerclean None --answerdiff None \
+  yay -S --needed --noconfirm --answerclean All --answerdiff None \
     hyprland-meta-git || handle_error "Failed to install hyprland-meta-git"
   ;;
 *)
