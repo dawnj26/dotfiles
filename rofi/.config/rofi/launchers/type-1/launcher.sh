@@ -16,6 +16,6 @@ theme='style-2'
 
 ## Run
 rofi \
-  -show drun \
+  -show "$@" \
   -theme ${dir}/${theme}.rasi \
   -run-command "uwsm app -- {cmd}"

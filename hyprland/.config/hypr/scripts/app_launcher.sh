@@ -4,7 +4,7 @@ CONFIG="$HOME/.config/wofi/config/config"
 STYLE="$HOME/.config/wofi/src/mocha/style.css"
 
 LAUNCHER="rofi"
-CMD_LAUNCHER="${LAUNCHER} --conf $CONFIG --style $STYLE --show drun"
+CMD_LAUNCHER="${LAUNCHER} --conf $CONFIG --style $STYLE --show"
 
 if [[ $LAUNCHER == "rofi" ]]; then
   CONFIG="$HOME/.config/rofi"
@@ -14,7 +14,7 @@ if [[ $LAUNCHER == "rofi" ]]; then
 fi
 
 if [[ ! $(pidof $LAUNCHER) ]]; then
-  $CMD_LAUNCHER
+  "$CMD_LAUNCHER" "$@"
 else
   pkill $LAUNCHER
 fi
