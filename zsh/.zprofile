@@ -1,1 +1,2 @@
-export UWSM_USE_SESSION_SLICE=true
+export GTK_THEME=WhiteSur-Dark
+export NPM_CONFIG_PREFIX=~/.npm-global

@@ -11,7 +11,7 @@ bindkey "^[[1;3D" backward-word
 bindkey "^[^?" backward-kill-word
 
 # Enviroment variables
-export PATH=$HOME/flutter/bin:$HOME/.config/composer/vendor/bin:$PATH:$HOME/.local/bin:$HOME/.pub-cache/bin:$HOME/.local/share/bob/nvim-bin
+export PATH=$HOME/.npm-global/bin:$HOME/devtools/flutter/bin:$HOME/.config/composer/vendor/bin:$PATH:$HOME/.local/bin:$HOME/.pub-cache/bin:$HOME/.local/share/bob/nvim-bin:$HOME/Android/Sdk/platform-tools:$HOME/Android/Sdk/emulator
 export EDITOR=nvim
 export CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
 
@@ -35,6 +35,7 @@ alias disable-touchpad="hyprctl keyword 'device[elan0708:00-04f3:30a0-touchpad]:
 alias enable-touchpad="hyprctl keyword 'device[elan0708:00-04f3:30a0-touchpad]:enabled' 'true'"
 alias proton-up="sudo wg-quick up /etc/wireguard/dawn-JP-FREE-17.conf"
 alias proton-down="sudo wg-quick down /etc/wireguard/dawn-JP-FREE-17.conf"
+alias dbr="dart run build_runner build"
 
 # Zinit install
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
