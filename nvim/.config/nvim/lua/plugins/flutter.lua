@@ -6,7 +6,7 @@ return {
     "stevearc/dressing.nvim", -- optional for vim.ui.select
   },
   opts = {
-    flutter_path = os.getenv("HOME") .. "/flutter/bin/flutter",
+    flutter_path = os.getenv("HOME") .. "/devtools/flutter/bin/flutter",
     -- widget_guides = {
     --   enabled = true,
     -- },
