@@ -1,28 +1,28 @@
 {
-  "layer": "top",
-  "position": "bottom",
-  "reload_style_on_change": true,
+  "layer": "bottom",
+  "position": "top",
   "modules-left": [
-    "custom/notification",
-    "clock",
-    "tray",
-    "pulseaudio"
-  ],
-  "modules-center": [
     "hyprland/workspaces"
   ],
+  "modules-center": [
+    "custom/music"
+  ],
   "modules-right": [
-    "group/expand",
-    "bluetooth",
-    "network",
-    "battery"
+    "pulseaudio",
+    "backlight",
+    "battery",
+    "clock",
+    "tray",
+    "custom/lock",
+    "custom/power"
   ],
   "hyprland/workspaces": {
-    "format": "{icon}",
+    "disable-scroll": true,
+    "sort-by-name": true,
+    "all-outputs": true,
+    "format": " {icon}  {name} ",
     "format-icons": {
-      "active": "",
-      "default": "",
-      "empty": ""
+      "default": ""
     },
     "persistent-workspaces": {
       "*": [
@@ -34,132 +34,107 @@
       ]
     }
   },
-  "custom/notification": {
-    "tooltip": false,
-    "format": "⏻",
-    "on-click": "wlogout",
-    "escape": true
+  "tray": {
+    "icon-size": 12,
+    "spacing": 10
   },
-  "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-bluetooth": "{icon} {volume}%",
-    "format-muted": "",
-    "format-icons": {
-      "headphone": "",
-      "headset": "",
-      "phone": "",
-      "phone-muted": "",
-      "portable": "",
-      "car": "",
-      "default": [
-        "",
-        "",
-        ""
-      ]
-    },
-    "scroll-step": 5,
-    "on-click": "pwvucontrol"
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 50,
+    "tooltip": true,
+    "icon": true,
+    "icon-size": 10,
+    "separate-outputs": true
+  },
+  "custom/music": {
+    "format": "  {}",
+    "escape": true,
+    "interval": 5,
+    "tooltip": false,
+    "exec": "playerctl metadata --format='{{ title }} - {{ artist }}'",
+    "on-click": "playerctl play-pause",
+    "max-length": 50
   },
   "clock": {
-    "format": "{:%I:%M:%S %p} ",
-    "interval": 1,
-    "tooltip-format": "<tt>{calendar}</tt>",
-    "calendar": {
-      "format": {
-        "today": "<span color='#fAfBfC'><b>{}</b></span>"
-      }
-    },
-    "actions": {
-      "on-click-right": "shift_down",
-      "on-click": "shift_up"
-    }
+    "timezone": "Asia/Manila",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "  {:%b. %d, %Y}",
+    "format": "  {:%I:%M %p}"
   },
-  "network": {
-    "format-wifi": "",
-    "format-ethernet": "",
-    "format-disconnected": "",
-    "tooltip-format-disconnected": "Error",
-    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
-    "tooltip-format-ethernet": "{ifname} 🖧 ",
-    "on-click": "nm-connection-editor"
-  },
-  "bluetooth": {
-    "format-on": "󰂯",
-    "format-off": "BT-off",
-    "format-disabled": "󰂲",
-    "format-connected-battery": "{device_battery_percentage}% 󰂯",
-    "format-alt": "{device_alias} 󰂯",
-    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-    "tooltip-format-enumerate-connected": "{device_alias}\n{device_address}",
-    "tooltip-format-enumerate-connected-battery": "{device_alias}\n{device_address}\n{device_battery_percentage}%",
-    "on-click-right": "blueman-manager"
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon}",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   "battery": {
-    "interval": 30,
     "states": {
-      "good": 95,
       "warning": 30,
-      "critical": 20
+      "critical": 15
     },
-    "format": "{capacity}% {icon}",
-    "format-charging": "{capacity}% 󰂄",
-    "format-plugged": "{capacity}% 󰂄 ",
-    "format-alt": "{time} {icon}",
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": "󰚥",
+    "format-alt": "{icon}",
     "format-icons": [
+      "󰁺",
       "󰁻",
       "󰁼",
+      "󰁽",
       "󰁾",
+      "󰁿",
       "󰂀",
-      "󰂂",
+      "󰂁",
       "󰁹"
     ]
   },
-  "custom/expand": {
-    "format": "",
-    "tooltip": false
+  "network": {
+    "format": "{ifname}",
+    "format-wifi": "{icon}  {essid}",
+    "format-icons": [
+      "󰤯",
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨"
+    ],
+    "format-ethernet": "󰛳 {ipaddr}",
+    "format-disconnected": "󰅛",
+    "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50
   },
-  "custom/endpoint": {
-    "format": "|",
-    "tooltip": false
-  },
-  "group/expand": {
-    "orientation": "horizontal",
-    "drawer": {
-      "transition-duration": 600,
-      "transition-to-left": true,
-      "click-to-reveal": true
+  "pulseaudio": {
+    "scroll-step": 5,
+    "format": "{icon} {volume}%",
+    "format-muted": "",
+    "format-icons": {
+      "default": [
+        "",
+        "",
+        " "
+      ]
     },
-    "modules": [
-      "custom/expand",
-      "custom/colorpicker",
-      "cpu",
-      "memory",
-      "temperature",
-      "custom/endpoint"
-    ]
+    "on-click": "pwvucontrol"
   },
-  "custom/colorpicker": {
-    "format": "{}",
-    "return-type": "json",
-    "interval": "once",
-    "exec": "~/.config/waybar/scripts/colorpicker.sh -j",
-    "on-click": "~/.config/waybar/scripts/colorpicker.sh",
-    "signal": 1
+  "custom/lock": {
+    "tooltip": false,
+    "format": "󰛳"
   },
-  "cpu": {
-    "format": "󰻠",
-    "tooltip": true
-  },
-  "memory": {
-    "format": ""
-  },
-  "temperature": {
-    "critical-threshold": 80,
-    "format": ""
-  },
-  "tray": {
-    "icon-size": 14,
-    "spacing": 10
+  "custom/power": {
+    "tooltip": false,
+    "on-click": "uwsm app -- wlogout",
+    "format": "⏼"
   }
 }
