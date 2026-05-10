@@ -11,9 +11,9 @@ bindkey "^[[1;3D" backward-word
 bindkey "^[^?" backward-kill-word
 
 # Enviroment variables
-export PATH=$HOME/.npm-global/bin:$HOME/devtools/flutter/bin:$HOME/.config/composer/vendor/bin:$PATH:$HOME/.local/bin:$HOME/.pub-cache/bin:$HOME/.local/share/bob/nvim-bin:$HOME/Android/Sdk/platform-tools:$HOME/Android/Sdk/emulator
+export PATH=$HOME/.npm-global/bin:$HOME/devtools/flutter/bin:$HOME/.config/composer/vendor/bin:$PATH:$HOME/.local/bin:$HOME/.pub-cache/bin:$HOME/.local/share/bob/nvim-bin:$HOME/Android/Sdk/platform-tools:$HOME/Android/Sdk/emulator:$HOME/go/bin:$HOME/fvm/versions/stable/bin
 export EDITOR=nvim
-export CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
+export CHROME_EXECUTABLE=/usr/bin/brave
 
 # Node version manager
 export NVM_DIR="$HOME/.nvm"
@@ -36,6 +36,7 @@ alias enable-touchpad="hyprctl keyword 'device[elan0708:00-04f3:30a0-touchpad]:e
 alias proton-up="sudo wg-quick up /etc/wireguard/dawn-JP-FREE-17.conf"
 alias proton-down="sudo wg-quick down /etc/wireguard/dawn-JP-FREE-17.conf"
 alias dbr="dart run build_runner build"
+alias update-kernel="yay -Sy linux-cachyos linux-cachyos-headers linux-cachyos-bore-lto linux-cachyos-bore-lto-headers linux-cachyos-lts linux-cachyos-lts-headers --noconfirm"
 
 # Zinit install
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
